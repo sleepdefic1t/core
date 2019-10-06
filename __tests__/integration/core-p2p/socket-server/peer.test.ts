@@ -98,7 +98,7 @@ describe("Peer socket endpoint", () => {
                         data: {},
                         headers,
                     }),
-                ).rejects.toHaveProperty("name", "CoreValidationError");
+                ).rejects.toHaveProperty("name", "BadConnectionError");
             });
         });
 
@@ -202,7 +202,7 @@ describe("Peer socket endpoint", () => {
                 emit("p2p.peer.getStatus", {
                     headers,
                 }),
-            ).rejects.toHaveProperty("name", "CoreRateLimitExceededError");
+            ).rejects.toHaveProperty("name", "BadConnectionError");
         });
 
         it("should cancel the request when exceeding rate limit on a certain endpoint", async () => {
@@ -220,7 +220,7 @@ describe("Peer socket endpoint", () => {
                     headers,
                     data: { block },
                 }),
-            ).rejects.toHaveProperty("name", "CoreRateLimitExceededError");
+            ).rejects.toHaveProperty("name", "BadConnectionError");
 
             await expect(
                 emit("p2p.peer.getStatus", {
@@ -285,7 +285,7 @@ describe("Peer socket endpoint", () => {
                     emit("p2p.peer.getPeers", {
                         headers,
                     }),
-                ).rejects.toContainAnyEntries([["name", "CoreRateLimitExceededError"], ["name", "BadConnectionError"]]);
+                ).rejects.toHaveProperty("name", "BadConnectionError");
             }
 
             expect(socket.state).not.toBe("open");

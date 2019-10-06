@@ -51,19 +51,16 @@ export const startSocketServer = async (service: P2P.IPeerService, config: Recor
                 headers: getHeaders(),
             });
         } catch (error) {
-            if (error instanceof ServerError) {
-                return res(error);
-            }
-
-            if (error.name === SocketErrors.Validation) {
-                return res(error);
-            }
-
-            if (error.name === SocketErrors.AppNotReady) {
+            if (
+                error instanceof ServerError ||
+                error.name === SocketErrors.Validation ||
+                error.name === SocketErrors.AppNotReady
+            ) {
                 return res(error);
             }
 
             app.resolvePlugin<Logger.ILogger>("logger").error(error.message);
+
             return res(new Error(`${req.endpoint} responded with ${error.message}`));
         }
     });

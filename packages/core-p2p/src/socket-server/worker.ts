@@ -27,25 +27,21 @@ export class Worker extends SCWorker {
     private handlePayload(ws, req) {
         ws.on("message", message => {
             try {
-                const InvalidMessagePayloadError: Error = this.createError(
-                    SocketErrors.InvalidMessagePayload,
-                    "The message contained an invalid payload",
-                );
                 if (message === "#2") {
                     const timeNow: number = new Date().getTime() / 1000;
                     if (ws._lastPingTime && timeNow - ws._lastPingTime < 1) {
-                        throw InvalidMessagePayloadError;
+                        req.socket.terminate();
                     }
                     ws._lastPingTime = timeNow;
                 } else {
-                    const parsed = JSON.parse(message);
+                    const { data, event, cid } = JSON.parse(message);
+
                     if (
-                        typeof parsed.event !== "string" ||
-                        typeof parsed.data !== "object" ||
-                        (typeof parsed.cid !== "number" &&
-                            (parsed.event === "#disconnect" && typeof parsed.cid !== "undefined"))
+                        typeof event !== "string" ||
+                        typeof data !== "object" ||
+                        (typeof cid !== "number" && (event === "#disconnect" && typeof cid !== "undefined"))
                     ) {
-                        throw InvalidMessagePayloadError;
+                        req.socket.terminate();
                     }
                 }
             } catch (error) {
@@ -81,7 +77,7 @@ export class Worker extends SCWorker {
 
         const isBlacklisted: boolean = (this.config.blacklist || []).includes(req.socket.remoteAddress);
         if (data.blocked || isBlacklisted) {
-            next(this.createError(SocketErrors.Forbidden, "Blocked due to rate limit or blacklisted."));
+            req.socket.terminate();
             return;
         }
 
