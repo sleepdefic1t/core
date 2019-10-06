@@ -22,8 +22,5 @@ export enum NetworkStateStatus {
 }
 
 export enum SocketErrors {
-    Timeout = "CoreTimeoutError",
-    SocketNotOpen = "CoreSocketNotOpenError",
-    AppNotReady = "CoreAppNotReadyError",
     Validation = "CoreValidationError",
 }

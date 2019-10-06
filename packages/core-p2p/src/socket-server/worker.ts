@@ -1,6 +1,5 @@
 import { P2P } from "@arkecosystem/core-interfaces";
 import SCWorker from "socketcluster/scworker";
-import { SocketErrors } from "../enums";
 
 export class Worker extends SCWorker {
     private config: Record<string, any>;
@@ -188,13 +187,6 @@ export class Worker extends SCWorker {
                 (err, res) => (err ? reject(err) : resolve(res)),
             );
         });
-    }
-
-    private createError(name, message): Error {
-        const error: Error = new Error(message);
-        error.name = name;
-
-        return error;
     }
 }
 
