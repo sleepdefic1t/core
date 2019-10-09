@@ -4,11 +4,14 @@
     <img src="https://raw.githubusercontent.com/ARKEcosystem/core/master/banner.png" />
 </p>
 
+[![Benchmark](https://github.com/sleepdefic1t/core/workflows/Benchmark/badge.svg)](https://github.com/ArkEcosystem/core/workflows/Benchmark/badge.svg)
+[![Functional](https://github.com/sleepdefic1t/core/workflows/Functional/badge.svg)](https://github.com/ArkEcosystem/core/workflows/Functional/badge.svg)
+[![Test](https://github.com/sleepdefic1t/core/workflows/Test/badge.svg)](https://github.com/ArkEcosystem/core/workflows/Test/badge.svg)
+[![Codecov](https://badgen.now.sh/codecov/c/github/arkecosystem/core)](https://codecov.io/gh/arkecosystem/core)
+[![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 [![Benchmark](https://github.com/ArkEcosystem/core/workflows/Benchmark/badge.svg)](https://github.com/ArkEcosystem/core/workflows/Benchmark/badge.svg)
 [![Functional](https://github.com/ArkEcosystem/core/workflows/Functional/badge.svg)](https://github.com/ArkEcosystem/core/workflows/Functional/badge.svg)
 [![Test](https://github.com/ArkEcosystem/core/workflows/Test/badge.svg)](https://github.com/ArkEcosystem/core/workflows/Test/badge.svg)
-[![Codecov](https://badgen.now.sh/codecov/c/github/arkecosystem/core)](https://codecov.io/gh/arkecosystem/core)
-[![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
 > Lead Maintainer: [Joshua Noack](https://github.com/supaiku0)
 
