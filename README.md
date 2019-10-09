@@ -10,10 +10,6 @@
 [![Codecov](https://badgen.now.sh/codecov/c/github/arkecosystem/core)](https://codecov.io/gh/arkecosystem/core)
 [![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
-[![Benchmark](https://github.com/ArkEcosystem/core/workflows/Benchmark/badge.svg)](https://github.com/ArkEcosystem/core//actions?workflow=Benchmark)
-[![Functional](https://github.com/ArkEcosystem/core/workflows/Functional/badge.svg)](https://github.com/ArkEcosystem/core//actions?workflow=Functional)
-[![Test](https://github.com/ArkEcosystem/core/workflows/Test/badge.svg)](https://github.com/ArkEcosystem/core//actions?workflow=Test)
-
 > Lead Maintainer: [Joshua Noack](https://github.com/supaiku0)
 
 ## Introduction
